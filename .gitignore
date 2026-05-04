@@ -1,3 +1,5 @@
 node_modules/
 dist/
 out/
+public/audio/*.mp3
+public/subtitles/*.srt
