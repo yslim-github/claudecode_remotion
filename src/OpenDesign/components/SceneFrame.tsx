@@ -1,12 +1,16 @@
 import React from "react";
-import { AbsoluteFill, useCurrentFrame, interpolate, Easing } from "remotion";
-import { loadFont } from "@remotion/google-fonts/Montserrat";
+import { AbsoluteFill, useCurrentFrame, interpolate, Easing, staticFile } from "remotion";
 import { SceneItem } from "../SceneData";
 import { VisualDispatch } from "../visuals/VisualDispatch";
 import { SceneAudio } from "./SceneAudio";
 import { SubtitleTrack } from "./SubtitleTrack";
 
-loadFont("normal", { weights: ["400", "600", "700", "800"], subsets: ["latin"] });
+const FONT_STYLE = `
+  @font-face { font-family: 'Montserrat'; font-weight: 400; font-style: normal; src: url('${staticFile("fonts/montserrat-400.ttf")}') format('truetype'); }
+  @font-face { font-family: 'Montserrat'; font-weight: 600; font-style: normal; src: url('${staticFile("fonts/montserrat-600.ttf")}') format('truetype'); }
+  @font-face { font-family: 'Montserrat'; font-weight: 700; font-style: normal; src: url('${staticFile("fonts/montserrat-700.ttf")}') format('truetype'); }
+  @font-face { font-family: 'Montserrat'; font-weight: 800; font-style: normal; src: url('${staticFile("fonts/montserrat-800.ttf")}') format('truetype'); }
+`;
 
 // Each scene slot: 912 frames. Audio/subtitle sceneId = "scene{id}"
 const FADE_IN = 18;
@@ -34,6 +38,7 @@ export const SceneFrame: React.FC<Props> = ({ scene, total }) => {
 
   return (
     <AbsoluteFill style={{ background: "linear-gradient(135deg, #0D1117 0%, #0A0F1A 100%)", opacity }}>
+      <style>{FONT_STYLE}</style>
       {/* Subtle grid overlay */}
       <div style={{
         position: "absolute", inset: 0, opacity: 0.03,
