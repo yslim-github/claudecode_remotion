@@ -14,14 +14,10 @@
     "@remotion/cli": "4.0.457",
     "@remotion/google-fonts": "4.0.457",
     "@remotion/transitions": "4.0.457",
+    "@remotion/compositor-win32-x64-msvc": "4.0.457",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "remotion": "4.0.457"
-  },
-  "optionalDependencies": {
-    "@remotion/compositor-win32-x64-msvc": "4.0.457",
-    "@remotion/compositor-linux-x64-gnu": "4.0.457",
-    "@remotion/compositor-darwin-arm64": "4.0.457"
   },
   "devDependencies": {
     "@types/react": "^19.2.14",
