@@ -1,0 +1,16 @@
+{
+  "name": "claudecode_remotion",
+  "version": "1.0.0",
+  "description": "Remotion video project",
+  "scripts": {
+    "start": "remotion studio",
+    "build": "remotion render",
+    "upgrade": "remotion upgrade"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.456",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "remotion": "^4.0.456"
+  }
+}
