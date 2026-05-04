@@ -70,12 +70,40 @@ export const SceneFrame: React.FC<Props> = ({ scene, total }) => {
       <div style={{
         position: "absolute", inset: 0,
         display: "flex", alignItems: "center", justifyContent: "center",
-        paddingTop: 60, paddingBottom: 120,
+        paddingTop: 60, paddingBottom: 180,
       }}>
         <VisualDispatch visualType={scene.visualType} visualData={scene.visualData} />
       </div>
 
-      {/* Subtitle */}
+      {/* Script subtitle — always visible, fades in at frame 40 */}
+      {(() => {
+        const op = interpolate(frame, [40, 65], [0, 1], {
+          easing: Easing.bezier(0.16, 1, 0.3, 1), extrapolateLeft: "clamp", extrapolateRight: "clamp",
+        });
+        return (
+          <div style={{
+            position: "absolute", bottom: 100, left: 80, right: 80,
+            display: "flex", justifyContent: "center", opacity: op,
+          }}>
+            <div style={{
+              background: "rgba(88,166,255,0.08)",
+              border: "1px solid rgba(88,166,255,0.2)",
+              borderLeft: "3px solid #58A6FF",
+              borderRadius: 8, padding: "12px 28px", maxWidth: 1400,
+            }}>
+              <span style={{
+                fontFamily: "'Montserrat', sans-serif",
+                fontSize: 24, fontWeight: 600, color: "rgba(255,255,255,0.85)",
+                lineHeight: 1.5, letterSpacing: "0.01em",
+              }}>
+                {scene.subtitle}
+              </span>
+            </div>
+          </div>
+        );
+      })()}
+
+      {/* SRT audio-synced captions */}
       <SubtitleTrack sceneId={sceneId} />
 
       {/* Bottom progress bar */}
