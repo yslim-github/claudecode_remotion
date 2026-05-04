@@ -15,6 +15,7 @@
     "@remotion/google-fonts": "4.0.457",
     "@remotion/transitions": "4.0.457",
     "@remotion/compositor-win32-x64-msvc": "4.0.457",
+    "@rspack/binding-win32-x64-msvc": "1.7.6",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "remotion": "4.0.457"
