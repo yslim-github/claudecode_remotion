@@ -4,6 +4,7 @@ import { SputnikGraphic } from "../graphics/SputnikGraphic";
 
 export const Scene1_Sputnik: React.FC = () => (
   <SceneLayout
+    sceneId="scene1"
     year="1957"
     title="우주 시대의 개막"
     subtitle="스푸트니크 1호 — 인류 최초의 인공위성"

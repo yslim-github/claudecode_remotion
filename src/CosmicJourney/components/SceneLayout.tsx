@@ -1,6 +1,8 @@
 import React from "react";
 import { AbsoluteFill, useCurrentFrame, interpolate, Easing } from "remotion";
 import { StarField } from "./StarField";
+import { SceneAudio } from "./SceneAudio";
+import { SubtitleTrack } from "./SubtitleTrack";
 
 type Props = {
   year: string;
@@ -8,6 +10,7 @@ type Props = {
   subtitle: string;
   graphic: React.ReactNode;
   accentColor?: string;
+  sceneId: string;
 };
 
 const FADE_IN_END = 20;
@@ -24,6 +27,7 @@ const FADE_OUT_START = 255;
 export const SceneLayout: React.FC<Props> = ({
   year,
   title,
+  sceneId,
   subtitle,
   graphic,
   accentColor = "#00D4FF",
@@ -85,6 +89,7 @@ export const SceneLayout: React.FC<Props> = ({
         opacity: sceneOpacity,
       }}
     >
+      <SceneAudio sceneId={sceneId} startFrom={0} />
       <StarField />
 
       {/* Graphic layer */}
@@ -179,6 +184,8 @@ export const SceneLayout: React.FC<Props> = ({
           {subtitle}
         </div>
       </div>
+
+      <SubtitleTrack sceneId={sceneId} />
     </AbsoluteFill>
   );
 };
